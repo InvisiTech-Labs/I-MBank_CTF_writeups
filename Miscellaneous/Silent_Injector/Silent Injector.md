@@ -97,6 +97,76 @@ The duckdecoder.py script was developed early using Python2 hence not compatible
     STRING echo This is the secret CTF flag: flag{inm_Secure_Online_Banking} > secret.txt
     ```
 
+###Python3
+For python3 you can make use of the following script i came up with in the folder named DuckDecoder
+	```bash
+	cd DuckDecoder 
+	```
+Then run the script against the silent.bin using python3
+	```bash
+	python3 decoder3.py decode ../silent.bin
+	```	
+It will output the same results	
+	```bash
+	GUI R
+	DELAY 1500
+
+	STRING cmd
+	ENTER
+	DELAY 500
+
+	STRING tree C:\ /F | more
+	ENTER
+	DELAY 2000
+
+	STRING timeout 5
+	ENTER
+	DELAY 1000
+
+	STRING dir C:\Windows\System32 | findstr ".dll" | head -n 20
+	ENTER
+	DELAY 1000
+
+	STRING ping -n 3 127.0.0.1
+	ENTER
+	DELAY 1000
+
+	STRING net user
+	ENTER
+	DELAY 1000
+
+	STRING systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+	ENTER
+	DELAY 1000
+
+	STRING powershell -command "Write-Host 'This is a fake flag: FAKE_FLAG{Not_The_Real_One}' -ForegroundColor Red"
+	ENTER
+	DELAY 1000
+
+	STRING powershell -command "Get-Process | Select-Object -First 10"
+	ENTER
+	DELAY 1000
+
+	STRING echo "The real flag is hidden somewhere in this payload. Look carefully!"
+	ENTER
+	DELAY 500
+
+	STRING echo This is the secret CTF flag: flag{inm_Secure_Online_Banking}> secret.txt
+	ENTER
+	DELAY 500
+
+	STRING type secret.txt
+	ENTER
+	DELAY 500
+
+	STRING del secret.txt
+	ENTER
+	DELAY 500
+
+	STRING exit
+	ENTER
+	```
+
 ## Method 2: Using DuckToolkit
 
 Another great simple method to approach this challenge was to use DuckToolkit to decode the binary file and output it to simple text file.
