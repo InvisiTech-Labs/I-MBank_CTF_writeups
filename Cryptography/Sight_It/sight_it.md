@@ -82,6 +82,22 @@ Why I did this? The presence of a curly brace { as the first character of the fi
 
 ## 4. Assembling the Message
 
+###Method1
+I used the following command and then formatted the output by making use of my linux basic skills
+	```bash
+	cut -c1 message.txt | tr '[:upper:]' '[:lower:]' | sed 's/$/\n/' > output.txt
+	```
+using cat command i viewed the contents of output.txt
+
+	```bash
+	cat output.txt
+	```
+	
+Then i replaced the spaces with underscores as most flags are formatted and had my final flag:
+
+	flag{hidden_in_plain_sight}
+
+###Method2
 I concatenated all the first letters I collected, in order:
 
     F L A G { H I D D E N I N P L A I N S I G H T }
